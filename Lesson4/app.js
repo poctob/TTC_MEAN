@@ -4,14 +4,22 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var tasksRouter = require('./routes/tasks');
+const DB = require('./app/models/db');
+
+const db = new DB();
+db.connect();
+
+var indexRouter = require('./app/routes/index');
+var usersRouter = require('./app/routes/users');
+var tasksRouter = require('./app/routes/tasks');
 
 var app = express();
 
+app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
+app.use(express.static(__dirname + '/node_modules/jquery/dist'));
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, './app/views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
