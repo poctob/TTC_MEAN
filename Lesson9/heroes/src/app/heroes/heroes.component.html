@@ -1,0 +1,40 @@
+<div>
+  <label>Hero name:
+    <input id="heroName" name="heroName" class="form-control"
+       required minlength="4" appForbiddenName="Ironman"
+       [(ngModel)]="heroName.name" #heroName="ngModel" value="Hero's name"/>
+  </label>
+  
+  <div *ngIf="heroName.invalid && (heroName.dirty || heroName.touched)"
+     class="alert alert-danger">
+
+      <div *ngIf="heroName.errors.required">
+        Name is required.
+      </div>
+      <div *ngIf="heroName.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+      <div *ngIf="heroName.errors.forbiddenName">
+        Name cannot be Ironman.
+      </div>
+
+  </div>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
+
+<h2>All Heroes</h2>
+  
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{hero._id}}">
+        <span class="badge">{{hero._id}}</span> {{hero.name}} 
+      </a> <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+     
+    </li>
+  </ul>
+  
+  
