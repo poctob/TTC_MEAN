@@ -3,6 +3,11 @@ import { Hero } from '../hero';
 
 import { HeroService } from '../hero.service';
 
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
+import { HeroesModalComponent } from '../heroes-modal/heroes-modal.component';
+import { HeroesModal2Component } from '../heroes-modal2/heroes-modal2.component';
+
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -14,7 +19,22 @@ export class HeroesComponent implements OnInit {
  
   selectedHero: Hero;
   
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,
+              private modalService: NgbModal) { }
+              
+  openConfirmation(hero: Hero) {
+    
+    const modalRef = this.modalService.open(HeroesModal2Component);
+    
+    modalRef.componentInstance.name = hero.name;
+    
+    modalRef.result.then((result) => {
+      this.delete(hero)
+    },
+      (reason) => {
+      
+    });
+  }
 
   ngOnInit() {
     this.getHeroes();

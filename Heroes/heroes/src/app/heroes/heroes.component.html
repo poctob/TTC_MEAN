@@ -9,13 +9,19 @@
   </button>
 </div>
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero._id}}">
-     {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-      (click)="delete(hero)">x</button>
-  </li>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <ul class="list-group">
+        <li *ngFor="let hero of heroes" class="list-group-item d-flex justify-content-between align-items-center">
+          <a routerLink="/detail/{{hero._id}}">
+           {{hero.name}}
+          </a>
+           <button type="button" class="btn btn-danger" title="delete hero"
+            (click)="openConfirmation(hero)">x</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 <app-hero-detail [selectedHero]="selectedHero"></app-hero-detail>

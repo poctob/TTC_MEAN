@@ -60,3 +60,6 @@ h4 {
     min-width: 60px;
   }
 }
+.centered-div {
+  margin: auto;
+}

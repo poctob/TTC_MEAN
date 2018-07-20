@@ -16,13 +16,18 @@ import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeroDetailReactiveComponent } from './hero-detail-reactive/hero-detail-reactive.component';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HeroesModalComponent } from './heroes-modal/heroes-modal.component';
+import { HeroesModal2Component } from './heroes-modal2/heroes-modal2.component';
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -32,8 +37,11 @@ import { HeroDetailReactiveComponent } from './hero-detail-reactive/hero-detail-
     MessagesComponent,
     HeroSearchComponent,
     ForbiddenValidatorDirective,
-    HeroDetailReactiveComponent
+    HeroDetailReactiveComponent,
+    HeroesModalComponent,
+    HeroesModal2Component
   ],
+  entryComponents: [HeroesModalComponent, HeroesModal2Component],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

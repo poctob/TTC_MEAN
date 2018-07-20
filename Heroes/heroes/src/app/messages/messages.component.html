@@ -1,8 +1,25 @@
 <div *ngIf="messageService.messages.length">
 
   <h2>Messages</h2>
-  <button class="clear"
-          (click)="messageService.clear()">clear</button>
-  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+ 
+
+  <div class="container"> 
+    <div class="row">
+      <div class="col">
+         <button type="button" class="btn btn-outline-info btn-padded"
+            (click)="messageService.clear()">clear</button>
+        </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-6">
+        <div *ngFor="let message of messageService.messages; index as i">
+              <ngb-alert [type]="'secondary'" (close)="messageService.delete(i)">
+                {{ message }}
+              </ngb-alert>
+        </div>
+      </div> 
+     </div>
+  </div>    
 
 </div>

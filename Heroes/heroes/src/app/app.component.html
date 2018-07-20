@@ -4,11 +4,10 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<app-hero-detail-reactive></app-hero-detail-reactive>
 
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a type="button" class="btn btn-secondary btn-padded" routerLink="/dashboard">Dashboard</a>
+  <a type="button" class="btn btn-secondary btn-padded" routerLink="/heroes">Heroes</a>
 </nav>
 
 <router-outlet></router-outlet>

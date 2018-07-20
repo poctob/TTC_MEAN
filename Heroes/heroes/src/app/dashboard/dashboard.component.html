@@ -1,11 +1,20 @@
-
 <h3>Top Heroes</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let hero of heroes" routerLink="/detail/{{hero._id}}" class="col-1-4">
-    <div class="module hero">
-      <h4>{{hero.name}}</h4>
-    </div>
-  </a>
+
+<div class = "row">
+  <div class="col-1-4 centered-div">
+    
+    <ngb-carousel>
+  
+        <ng-template ngbSlide *ngFor="let hero of heroes" class='carousel-item'>
+          <a routerLink="/detail/{{hero._id}}">
+            <div class="module hero">
+              <h4>{{hero.name}}</h4>
+            </div>
+          </a>
+        </ng-template>
+        
+    </ngb-carousel>
+      
+  </div>
 </div>
 
-<app-hero-search></app-hero-search>
