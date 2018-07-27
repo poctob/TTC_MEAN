@@ -8,6 +8,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { HeroesModalComponent } from '../heroes-modal/heroes-modal.component';
 import { HeroesModal2Component } from '../heroes-modal2/heroes-modal2.component';
 
+import { CounterService } from '../counter.service';
+
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -20,7 +22,8 @@ export class HeroesComponent implements OnInit {
   selectedHero: Hero;
   
   constructor(private heroService: HeroService,
-              private modalService: NgbModal) { }
+              private modalService: NgbModal,
+              private counterService: CounterService) { }
               
   openConfirmation(hero: Hero) {
     
@@ -61,6 +64,10 @@ export class HeroesComponent implements OnInit {
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero).subscribe();
+  }
+  
+  count(): void {
+    this.counterService.incrementCounter();
   }
 
 }
