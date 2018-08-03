@@ -1,9 +1,8 @@
-var generateName = require("sillyname");
+var mongoose = require("mongoose");
 
-module.exports = class Pet {
-    
-    constructor() {
-        this.type = 'No type';
-        this.name = generateName();
-    }
-}
+var petsSchema = new mongoose.Schema({
+    type: String,
+    name: String
+});
+
+module.exports = mongoose.model('Pets', petsSchema);

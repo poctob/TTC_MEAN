@@ -1,0 +1,44 @@
+<html>
+    <body>
+        Hello from Pets!
+        <br />
+        <form action='/pets/createCat' method='POST'>
+            Use Random Name <input type="checkbox" name="RandomName" value="True"/>
+            <br/>
+            
+            Cat's Name: <input type="text" name="Name" />
+            <br />
+            <input type="submit" value="Create Cat" />
+        </form>
+        <br />
+        <hr />
+        <form action='/pets/getAllCats' method='GET'>
+            <input type="submit" value="Get All Cats" />
+        </form>
+        
+        <br />
+        <hr />
+        <form action='/pets/deleteAllCats' method='POST'>
+            <input type="submit" value="Delete All Cats" />
+        </form>
+        
+        <br />
+        <form action='/pets/createDog' method='POST'>
+            Use Random Name <input type="checkbox" name="RandomName" value="True"/>
+            <br/>
+            Dog's Name: <input type="text" name="Name" />
+            <input type="submit" value="Create Dog" />
+        </form>
+        <br />
+        <hr />
+        <form action='/pets/getAllDogs' method='GET'>
+            <input type="submit" value="Get All Dogs" />
+        </form>
+        
+        <br />
+        <hr />
+        <form action='/pets/deleteAllDogs' method='POST'>
+            <input type="submit" value="Delete All Dogs" />
+        </form>
+    </body>
+</html>
