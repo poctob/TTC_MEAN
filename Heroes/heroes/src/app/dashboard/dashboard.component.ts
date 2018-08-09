@@ -20,14 +20,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getHeroes();
-    this.counterService.counterSubject.subscribe( num => {
-        this.doubleCounter = num * 2;
-    });
+    // this.counterService.counterSubject.subscribe( num => {
+    //     this.doubleCounter = num * 2;
+    // });
   }
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+      .subscribe(heroes => this.heroes = heroes);
   }
   
   count(): void {
