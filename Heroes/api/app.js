@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require("./routes/api");
+var blobRouter = require("./routes/blob");
 
 var DB = require("./models/db");
 const db = new DB();
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static('../heroes/dist/heroes'));
 
 app.use('/api', apiRouter);
+app.use('/blob', blobRouter);
 
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
